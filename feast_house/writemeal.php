@@ -146,20 +146,20 @@
             <?php
             include_once ('class/operation.php');
             $operation = new Crud();
-            $email= $_SESSION['name']; 
+            $name= $_SESSION['name']; 
             if(isset($_POST['submit'])){
                 $date = $operation->escape_string($_POST['date']);
                 $breakfast = $operation->escape_string($_POST['breakfast']);
                 $lunch = $operation->escape_string($_POST['lunch']);
                 $dinner = $operation->escape_string($_POST['dinner']);
 				
-				 session_start();
+				// session_start();
 				 if(!$_SESSION['email']){
 				echo "<script > alert('You have to Login First, Before Writing Your Meal');      
-									 window.location.href='registration.php';
+									 window.location.href='Login.php';
 							</script>";
 				 }
-				$result = $operation->execute("INSERT INTO meal_write(name,date,breakfast,lunch,dinner) VALUES('$email','$date','$breakfast','$lunch','$dinner')");
+				$result = $operation->execute("INSERT INTO meal_write(name,date,breakfast,lunch,dinner) VALUES('$name', '$date','$breakfast','$lunch','$dinner')");
 		   
 				if($result){
 					echo '<script>
